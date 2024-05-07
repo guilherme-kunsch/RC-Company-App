@@ -1,5 +1,5 @@
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { useNavigation } from "@react-navigation/native";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../services/configFirebase";
 import React, { useState } from "react";
 import {
   StyleSheet,
@@ -12,19 +12,18 @@ import {
   Text,
   Alert,
 } from "react-native";
+import { useNavigation } from '@react-navigation/native';
 
 export default function App() {
-  const navigation = useNavigation(); 
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigation = useNavigation();
+
   
   const handleSignIn = async () => {
-    const auth = getAuth();
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      console.log(userCredential)
-      navigation.navigate("Resultado");
+      navigation.navigate('resultado');
     } catch (error) {
       Alert.alert("Sign In Failed", error.message);
       console.error("Sign In Error:", error);

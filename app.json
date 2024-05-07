@@ -22,7 +22,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.guilhermekunsch.rc_company_app"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -32,6 +33,14 @@
       "@react-native-firebase/app",
       "@react-native-firebase/auth",
       "@react-native-google-signin/google-signin"
-    ]
+    ],
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "55cf6912-d2a1-478b-8eb6-525beb8ddb36"
+      }
+    }
   }
 }
